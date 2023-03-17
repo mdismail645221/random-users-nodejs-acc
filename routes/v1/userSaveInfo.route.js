@@ -1,9 +1,7 @@
-const express = require('express');
-const userControllers = require('../../controllers/random.user');
-const allUsers = require('../../controllers/all.users');
-const limiter = require('../../middleware/limiter');
+const express = require('express')
+const saveUser = require('../../controllers/user.save');
 
-const router = express.Router();
+const router = express.Router()
 
 
 
@@ -22,12 +20,9 @@ const router = express.Router();
  * @apiError {forbidden 403}
  */
 
-router.route('/').get(userControllers.randomSingleUser)
+router.route('/')
+.post(saveUser.userSaveInfo)
 
 
-// router.route('/:id')
-// .get(limiter,userControllers.getAllUsersById)
 
 module.exports = router;
-
-

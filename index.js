@@ -5,6 +5,7 @@ const dbConnectMongodb = require('./utils/dbConnectMongodb');
 const emailSending = require('./utils/emailSending');
 const randomUsers = require("./routes/v1/randomUser.route.js")
 const allUsers = require("./routes/v1/allUsers.route.js")
+const userSaveInfo = require("./routes/v1/userSaveInfo.route.js")
 
 
 // thirtParty npm 
@@ -32,6 +33,7 @@ app.use(viewCount)
 
 app.use('/api/v1/user/random', randomUsers)
 app.use('/api/v1/user/all', allUsers)
+app.use('/api/v1/user/save', userSaveInfo)
 
 
 app.get('/', (req, res)=> {

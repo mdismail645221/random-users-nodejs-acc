@@ -21,7 +21,7 @@ const router = express.Router();
  * @apiError {forbidden 403}
  */
 
-router.route('/').get(limiter,allUsers.allUsers)
+router.route('/').get(allUsers.allUsers)
 
 
 // router.route('/:id')
