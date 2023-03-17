@@ -1,5 +1,5 @@
 
-const randomUsers = [
+module.exports=randomUsers = [
     {
         Id: 1,
         gender: "Female",
@@ -83,16 +83,16 @@ const randomUsers = [
 ]
 
 
-module.exports.getAllUsers = (req, res, next) => {
+module.exports.randomSingleUser = (req, res, next) => {
     let randomCounter = Math.floor((Math.random() * 10))
     if (randomCounter === 0) {
         randomCounter++
     }
-    console.log(randomCounter)
+    // console.log(randomCounter)
     const randomUser = randomUsers.find(user => user.Id == randomCounter)
     // console.log(randomUser)
     if (randomUser) {
-        res.status(201).send({
+        res.status(200).send({
             success: true,
             data: randomUser
         })
@@ -102,10 +102,4 @@ module.exports.getAllUsers = (req, res, next) => {
             message: "not found"
         })
     }
-}
-
-
-module.exports.getAllUsersById = (req, res, next) => {
-    console.log(req.params)
-    res.send('getAllUsersById')
 }

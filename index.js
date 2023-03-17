@@ -3,7 +3,8 @@ const app = express();
 const port = process.env.PORT || 5000;
 const dbConnectMongodb = require('./utils/dbConnectMongodb');
 const emailSending = require('./utils/emailSending');
-const userRoutes = require("./routes/v1/user.route.js")
+const randomUsers = require("./routes/v1/randomUser.route.js")
+const allUsers = require("./routes/v1/allUsers.route.js")
 
 
 // thirtParty npm 
@@ -29,7 +30,9 @@ app.use(viewCount)
 
 // app.use(limiter)
 
-app.use('/api/v1/user/random', userRoutes)
+app.use('/api/v1/user/random', randomUsers)
+app.use('/api/v1/user/all', allUsers)
+
 
 app.get('/', (req, res)=> {
     res.send('server is running')
