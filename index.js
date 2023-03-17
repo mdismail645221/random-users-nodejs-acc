@@ -29,16 +29,17 @@ app.use(viewCount)
 
 // app.use(limiter)
 
-app.use('/api/v1/user', userRoutes)
+app.use('/api/v1/user/random', userRoutes)
 
 app.get('/', (req, res)=> {
     res.send('server is running')
 })
 
 
-
 app.all('*', (req,res)=> {
-    res.send('no route found')
+    res.send({
+        message: 'no route found'
+    })
 })
 
 
