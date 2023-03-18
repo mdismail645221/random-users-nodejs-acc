@@ -7,6 +7,7 @@ const randomUsers = require("./routes/v1/randomUser.route.js")
 const allUsers = require("./routes/v1/allUsers.route.js")
 const userSaveInfo = require("./routes/v1/userSaveInfo.route.js")
 const userBulkUpdate = require("./routes/v1/userBulkUpdate.route.js")
+const userUpdate = require('./routes/v1/userUpdate.route.js')
 
 
 // thirtParty npm 
@@ -35,6 +36,7 @@ app.use(viewCount)
 app.use('/api/v1/user/random', randomUsers)
 app.use('/api/v1/user/all', allUsers)
 app.use('/api/v1/user/save', userSaveInfo)
+app.use('/api/v1/user/update', userUpdate)
 app.use('/api/v1/user/bulk-update', userBulkUpdate)
 
 
