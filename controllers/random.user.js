@@ -84,7 +84,7 @@ module.exports=randomUsers = [
 
 
 module.exports.randomSingleUser = (req, res, next) => {
-    console.log("randomUser", randomUsers)
+    // console.log("randomUser", randomUsers)
     let randomCounter = Math.floor((Math.random() * 10))
     if (randomCounter === 0) {
         randomCounter++
