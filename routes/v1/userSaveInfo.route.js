@@ -1,5 +1,7 @@
 const express = require('express')
 const saveUser = require('../../controllers/user.save');
+const { body, validationResult } = require('express-validator');
+const userSaveValidation = require('../../middleware/userSaveValidation');
 
 const router = express.Router()
 
@@ -21,7 +23,24 @@ const router = express.Router()
  */
 
 router.route('/')
-.post(saveUser.userSaveInfo)
+.post(
+    // validation Id
+    body("Id").trim().isString().withMessage("Id  is missing."),
+    // validation gender
+    body("gender").trim().notEmpty().withMessage("gender is missing"),
+    // validation name
+    body("name").trim().notEmpty().withMessage("name is missing"),
+    // validation contact
+    body("contact").trim().notEmpty().withMessage("contact is missing"),
+    // validation address
+    body("address").trim().notEmpty().withMessage("address is missing"),
+    // validation photoUrl
+    body("photoUrl").trim().notEmpty().withMessage("photoUrl is missing"),
+
+    // middleware function for validation
+    userSaveValidation,
+
+    saveUser.userSaveInfo)
 
 
 

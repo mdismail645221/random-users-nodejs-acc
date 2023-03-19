@@ -14,8 +14,6 @@ module.exports.userSaveInfo = (req, res, next) => {
     } else {
         const Id = allUsers.length + 1;
         const newAllUsers = { ...newUser, Id }
-        // const query = allUsers.filter(user => user.Id == newUser.Id);
-        // console.log("query", query)
         allUsers.push(newAllUsers)
         res.status(200).send({
             success: true,
